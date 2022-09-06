@@ -1,0 +1,216 @@
+{
+ "creation": "2021-06-26 20:28:36.003044",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "apartment_information_section",
+  "project",
+  "tower",
+  "level_number",
+  "column_break_5",
+  "apartment",
+  "apartment_space",
+  "apartment_price",
+  "booking_amount",
+  "column_break_10",
+  "posting_date",
+  "booking_period",
+  "governorate",
+  "district",
+  "beneficiary_information_section",
+  "full_name",
+  "id_type",
+  "other",
+  "id_no",
+  "residence",
+  "column_break_21",
+  "job_designation",
+  "phone_no",
+  "mobile_no",
+  "column_break_25",
+  "permanent_address_is",
+  "reference_no",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "apartment_information_section",
+   "fieldtype": "Section Break",
+   "label": "Apartment Information"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "tower",
+   "fieldtype": "Link",
+   "label": "Tower",
+   "options": "Property"
+  },
+  {
+   "fieldname": "level_number",
+   "fieldtype": "Link",
+   "label": "Level Number",
+   "options": "Property"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "apartment",
+   "fieldtype": "Link",
+   "label": "Apartment",
+   "options": "Property"
+  },
+  {
+   "fetch_from": "apartment.apartment_space",
+   "fieldname": "apartment_space",
+   "fieldtype": "Data",
+   "label": "Apartment Space",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "apartment.apartment_price",
+   "fieldname": "apartment_price",
+   "fieldtype": "Currency",
+   "label": "Apartment Price",
+   "read_only": 1
+  },
+  {
+   "fieldname": "booking_amount",
+   "fieldtype": "Currency",
+   "label": "Booking Amount"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "booking_period",
+   "fieldtype": "Date",
+   "label": "Booking Period"
+  },
+  {
+   "fieldname": "governorate",
+   "fieldtype": "Link",
+   "label": "Governorate",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "beneficiary_information_section",
+   "fieldtype": "Section Break",
+   "label": "Beneficiary Information"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name"
+  },
+  {
+   "fieldname": "id_type",
+   "fieldtype": "Select",
+   "label": "ID Type",
+   "options": "\nID card\npassport\nFamily Card\nDriving License\nOther"
+  },
+  {
+   "depends_on": "eval:doc.id_type==\"Other\"",
+   "fieldname": "other",
+   "fieldtype": "Data",
+   "label": "Other"
+  },
+  {
+   "fieldname": "id_no",
+   "fieldtype": "Data",
+   "label": "ID No."
+  },
+  {
+   "fieldname": "residence",
+   "fieldtype": "Data",
+   "label": "Residence"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "job_designation",
+   "fieldtype": "Data",
+   "label": "Job Designation"
+  },
+  {
+   "fieldname": "phone_no",
+   "fieldtype": "Data",
+   "label": "Phone No.",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No.",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "permanent_address_is",
+   "fieldtype": "Select",
+   "label": "Permanent Address Is",
+   "options": "\nOwned\nRented"
+  },
+  {
+   "fieldname": "reference_no",
+   "fieldtype": "Data",
+   "label": "Reference No"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Booking Form",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-06-29 18:42:47.455178",
+ "modified_by": "t.azzan@partner-cons.com",
+ "module": "PAV Property Management Solution",
+ "name": "Booking Form",
+ "owner": "t.azzan@partner-cons.com",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

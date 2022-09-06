@@ -1,0 +1,240 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2022-08-22 10:09:23.411328",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "supplier",
+  "account_supplier",
+  "gender",
+  "id_type",
+  "id_no",
+  "issued_from",
+  "issued_date",
+  "column_break_8",
+  "date",
+  "account_currency",
+  "amount",
+  "in_word",
+  "from_date",
+  "to_date",
+  "section_break_14",
+  "profit_percentage",
+  "profit_amount",
+  "column_break_16",
+  "investment_contract_type",
+  "section_break_20",
+  "investment_contract_term",
+  "payment_schedule",
+  "template_details_section",
+  "investment_contract_template",
+  "investment_contract_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "INV-CO-.#####"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "supplier.id_type",
+   "fetch_if_empty": 1,
+   "fieldname": "id_type",
+   "fieldtype": "Select",
+   "label": "ID Type",
+   "options": "\nID card\nPassport\nFamily Card\nDriving License\nOther",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "supplier.id_no",
+   "fetch_if_empty": 1,
+   "fieldname": "id_no",
+   "fieldtype": "Data",
+   "label": "ID No",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "supplier.issued_from",
+   "fetch_if_empty": 1,
+   "fieldname": "issued_from",
+   "fieldtype": "Data",
+   "label": "Issued From",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "account_supplier.account_currency",
+   "fetch_if_empty": 1,
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "options": "account_currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "in_word",
+   "fieldtype": "Data",
+   "label": "In Word",
+   "read_only": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "profit_percentage",
+   "fieldtype": "Percent",
+   "label": "Profit Percentage"
+  },
+  {
+   "fieldname": "profit_amount",
+   "fieldtype": "Currency",
+   "label": "Profit Amount"
+  },
+  {
+   "fieldname": "payment_schedule",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Payment Schedule",
+   "options": "Payment Schedule"
+  },
+  {
+   "fetch_from": "supplier.issued_date",
+   "fetch_if_empty": 1,
+   "fieldname": "issued_date",
+   "fieldtype": "Date",
+   "label": "Issued Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "template_details_section",
+   "fieldtype": "Section Break",
+   "label": "Template Details"
+  },
+  {
+   "fieldname": "investment_contract_template",
+   "fieldtype": "Link",
+   "label": "Investment Contract Template",
+   "options": "Investment Contract Template"
+  },
+  {
+   "fieldname": "investment_contract_details",
+   "fieldtype": "Table",
+   "label": "Investment Contract Details",
+   "options": "Investment Contract Details"
+  },
+  {
+   "fetch_from": "supplier.gender",
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_20",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "investment_contract_term",
+   "fieldtype": "Table",
+   "label": "Investment Contract Term",
+   "options": "Investment Contract Term"
+  },
+  {
+   "depends_on": "eval:doc.profit_percentage || doc.profit_amount",
+   "fieldname": "investment_contract_type",
+   "fieldtype": "Link",
+   "label": "Investment Contract Type",
+   "options": "Investment Contract Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Investment Contract",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "account_supplier",
+   "fieldtype": "Link",
+   "label": "Account Supplier",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "depends_on": "account_supplier",
+   "fetch_from": "account_supplier.account_currency",
+   "fieldname": "account_currency",
+   "fieldtype": "Link",
+   "label": "Account Currency",
+   "options": "Currency",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2022-08-31 11:56:20.982704",
+ "modified_by": "Administrator",
+ "module": "PAV Property Management Solution",
+ "name": "Investment Contract",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
